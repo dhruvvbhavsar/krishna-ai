@@ -68,16 +68,14 @@ const Home: NextPage = () => {
         <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900">
           What have you come to seek, My dear child?
         </h1>
-
-        <p className="text-slate-500 mt-5">Do Not Worry.</p>
         <div className="max-w-xl w-full">
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={4}
-            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
+            className="w-full rounded-md border-gray-200 shadow-sm focus:border-black focus:ring-black my-5"
             placeholder={
-              "Why is everything not going good in my life? / Why am I not satisfied with my life?"
+              "Why do we keep suffering?"
             }
           />
           {!loading && (
@@ -85,7 +83,7 @@ const Home: NextPage = () => {
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
               onClick={(e) => generateBio(e)}
             >
-              Let me Help &rarr;
+              Click Here
             </button>
           )}
           {loading && (
@@ -120,7 +118,8 @@ const Home: NextPage = () => {
         </ResizablePanel>
         
         <div className="text-center p-4">
-    Made By Dhruv Bhavsar <span className="italic font-mono">with love</span>❤️🙏
+   <p className="font-serif font-semibold">Made by Dhruv Bhavsar</p>
+   <span className="font-mono">With Love🙏</span> 
     
   </div>
 
