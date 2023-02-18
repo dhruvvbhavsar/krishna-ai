@@ -118,6 +118,14 @@ const Home: NextPage = () => {
             </motion.div>
           </AnimatePresence>
         </ResizablePanel>
+        
+        <div className="text-center p-4">
+    Made By Dhruv Bhavsar <span className="italic font-mono">with love</span>❤️🙏
+    
+  </div>
+
+  
+
       </main>
     </div>
   );
