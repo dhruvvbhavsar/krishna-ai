@@ -7,19 +7,19 @@ import ResizablePanel from "../components/ResizablePanel";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
-  const [bio, setBio] = useState("");
-  const [generatedBios, setGeneratedBios] = useState<String>("");
+  const [result, setResult] = useState("");
+  const [generatedResults, setgeneratedResults] = useState<String>("");
 
-  console.log("Streamed response: ", generatedBios);
+  console.log("Streamed response: ", generatedResults);
 
   const prompt = `Imagine you're the Supreme Personality of Godhead, Lord Shri Krishna. You have the Knowledge of Everything. You have the knowledge of The Bhagwad Gita, Shrimad Bhagwatam and all other Vedic Literatures. Suppose, A human comes and asks you a question that is bugging him. What will you say to him/her.
 
-    Question: ${bio}
+    Question: ${result}
     Answer:`;
 
-  const generateBio = async (e: any) => {
+  const generateResult = async (e: any) => {
     e.preventDefault();
-    setGeneratedBios("");
+    setgeneratedResults("");
     setLoading(true);
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
-      setGeneratedBios((prev) => prev + chunkValue);
+      setgeneratedResults((prev) => prev + chunkValue);
     }
 
     setLoading(false);
@@ -69,20 +69,21 @@ const Home: NextPage = () => {
         </h1>
         <div className="max-w-xl w-full">
           <textarea
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
+            value={result}
+            onChange={(e) => setResult(e.target.value)}
             rows={4}
             className="w-full rounded-md border-gray-200 shadow-sm focus:border-black focus:ring-black my-5"
             placeholder={
-              "Why do we keep suffering?"
+              `Type your question here...
+eg: Why do I keep chasing after money?`
             }
           />
           {!loading && (
             <button
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
-              onClick={(e) => generateBio(e)}
+              onClick={(e) => generateResult(e)}
             >
-              Click Here
+              Ask and you shall receive
             </button>
           )}
           {loading && (
@@ -98,7 +99,7 @@ const Home: NextPage = () => {
         <ResizablePanel>
           <AnimatePresence mode="wait">
             <motion.div className="space-y-10 my-10">
-              {generatedBios && (
+              {generatedResults && (
                 <>
                   <div>
                     <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mx-auto text-center">
@@ -107,7 +108,7 @@ const Home: NextPage = () => {
                   </div>
                   <div className="space-y-8 flex flex-col items-center max-w-lg mx-auto">
                     <div className="bg-white rounded-xl shadow-md p-4 w-full overflow-y-auto">
-                      <p>{generatedBios}</p>
+                      <p>{generatedResults}</p>
                     </div>
                   </div>
                 </>
