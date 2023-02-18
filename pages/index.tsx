@@ -13,7 +13,6 @@ const Home: NextPage = () => {
   console.log("Streamed response: ", generatedBios);
 
   const prompt = `Imagine you're the Supreme Personality of Godhead, Lord Shri Krishna. You have the Knowledge of Everything. You have the knowledge of The Bhagwad Gita, Shrimad Bhagwatam and all other Vedic Literatures. Suppose, A human comes and asks you a question that is bugging him. What will you say to him/her.
-  Also, give one shlok from one if the scriptures...that will help them with their question. along with the description 
 
     Question: ${bio}
     Answer:`;
