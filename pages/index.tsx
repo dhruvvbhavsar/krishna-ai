@@ -118,7 +118,7 @@ eg: Why do I keep chasing after money?`
         </ResizablePanel>
         
         <div className="text-center p-4">
-   <p className="font-serif font-semibold">Made by Dhruv Bhavsar</p>
+   <p className="font-serif font-semibold">Made by Dhruvv Bhavsar</p>
    <span className="font-mono">With Love🙏</span> 
     
   </div>
